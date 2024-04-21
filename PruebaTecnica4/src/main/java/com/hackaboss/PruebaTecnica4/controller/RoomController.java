@@ -9,6 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/agency/hotel/rooms")
 public class RoomController {
 
-    @Autowired
-    private IRoomService roomService;
+
 }

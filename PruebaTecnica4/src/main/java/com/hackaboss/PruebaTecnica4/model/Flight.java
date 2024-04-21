@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class Flight {
     private String flightCode;
     private String origin;
     private String destination;
+    private LocalDate flightDate;
     private int maxPassengers;
     private Double seatPrice;
 

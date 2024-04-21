@@ -9,6 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/agency/persons")
 public class PersonController {
 
-    @Autowired
-    private IPersonService personService;
+
 }
