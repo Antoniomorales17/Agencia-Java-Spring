@@ -2,6 +2,7 @@ package com.hackaboss.PruebaTecnica4.service;
 
 import com.hackaboss.PruebaTecnica4.dto.RoomUpdateDto;
 import com.hackaboss.PruebaTecnica4.model.Room;
+import com.hackaboss.PruebaTecnica4.repository.HotelRepository;
 import com.hackaboss.PruebaTecnica4.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,23 @@ public class RoomService implements IRoomService {
 
     @Autowired
     private RoomRepository roomRepository;
+    @Autowired
+    private HotelRepository hotelRepository;
 
     @Override
     public Room saveRoom(Room room) {
-        return roomRepository.save(room);
+        String codHotel = room.getHotel().getHotelCode();
+
+        if (hotelRepository.existsById(codHotel)) {
+            if (existingRoom(room.getRoomCode())) {
+                return null;
+            }
+            return roomRepository.save(room);
+        } else {
+            return null;
+        }
+
+
     }
 
     @Override
@@ -25,32 +39,39 @@ public class RoomService implements IRoomService {
     }
 
     @Override
-    public Room findRoomById(String roomCode) {
-        return roomRepository.findById(roomCode).orElse(null);
+    public Room findRoomById(String codRoom) {
+        return roomRepository.findById(codRoom).orElse(null);
     }
 
     @Override
-    public Room updateRoom(String roomCode, RoomUpdateDto roomUpdateDto) {
-        Room room = findRoomById(roomCode);
-        if (room != null) {
-            // Actualizar los campos de la habitación con los datos del DTO
-            room.setAvailableFrom(roomUpdateDto.getAvailableFrom());
-            room.setAvailableUntil(roomUpdateDto.getAvailableUntil());
-            room.setNumBed(roomUpdateDto.getNumBed());
-            room.setAvalaibleRoom(roomUpdateDto.getAvailableRoom());
-            room.setPricePerNight(roomUpdateDto.getPricePerNight());
+    public Room updateRoom(String codRoom, RoomUpdateDto roomUpdateDto) {
+        Room existingRoom = roomRepository.findById(codRoom).orElse(null);
 
-            return roomRepository.save(room);
+        if (existingRoom != null) {
+            existingRoom.setAvailableFrom(roomUpdateDto.getAvailableFrom());
+            existingRoom.setAvailableUntil(roomUpdateDto.getAvailableUntil());
+            existingRoom.setNumBed(roomUpdateDto.getNumBed());
+            existingRoom.setAvalaibleRoom(roomUpdateDto.getAvailableRoom());
+            existingRoom.setPricePerNight(roomUpdateDto.getPricePerNight());
+
+            return roomRepository.save(existingRoom);
         }
         return null;
     }
 
     @Override
-    public Room deleteRoom(String roomCode) {
-        Room room = findRoomById(roomCode);
-        if (room != null) {
-            roomRepository.delete(room);
+    public Room deleteRoom(String codRoom) {
+        if (existingRoom(codRoom)) {
+            Room room = roomRepository.findById(codRoom).orElse(null);
+            if (room != null) {
+                roomRepository.delete(room);
+                return room;
+            }
         }
-        return room;
+        return null;
+    }
+
+    private boolean existingRoom(String codRoom) {
+        return roomRepository.existsById(codRoom);
     }
 }

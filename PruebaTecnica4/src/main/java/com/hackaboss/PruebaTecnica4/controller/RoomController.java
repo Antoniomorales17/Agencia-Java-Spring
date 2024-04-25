@@ -21,16 +21,21 @@ public class RoomController {
     public ResponseEntity<Room> saveRoom(@RequestBody Room room) {
         Room savedRoom = roomService.saveRoom(room);
         if (savedRoom != null) {
-            return new ResponseEntity<>(savedRoom, HttpStatus.CREATED); // Habitación creada exitosamente
+            return new ResponseEntity<>(savedRoom, HttpStatus.CREATED);
         } else {
-            return new ResponseEntity<>(HttpStatus.CONFLICT); // Error al crear la habitación
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
 
     @GetMapping
     public ResponseEntity<List<Room>> getAllRooms() {
         List<Room> rooms = roomService.findAllRooms();
-        return new ResponseEntity<>(rooms, HttpStatus.OK);
+        if(!rooms.isEmpty()){
+            return new ResponseEntity<>(rooms, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
     @GetMapping("/{roomCode}")
@@ -39,7 +44,7 @@ public class RoomController {
         if (room != null) {
             return new ResponseEntity<>(room, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Habitación no encontrada
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -47,9 +52,9 @@ public class RoomController {
     public ResponseEntity<Room> updateRoom(@PathVariable String roomCode, @RequestBody RoomUpdateDto roomUpdateDto) {
         Room updatedRoom = roomService.updateRoom(roomCode, roomUpdateDto);
         if (updatedRoom != null) {
-            return new ResponseEntity<>(updatedRoom, HttpStatus.OK); // Habitación actualizada exitosamente
+            return new ResponseEntity<>(updatedRoom, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Habitación no encontrada para actualizar
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -57,9 +62,9 @@ public class RoomController {
     public ResponseEntity<Void> deleteRoom(@PathVariable String roomCode) {
         Room deletedRoom = roomService.deleteRoom(roomCode);
         if (deletedRoom != null) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT); // Habitación eliminada exitosamente
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Habitación no encontrada para eliminar
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }
