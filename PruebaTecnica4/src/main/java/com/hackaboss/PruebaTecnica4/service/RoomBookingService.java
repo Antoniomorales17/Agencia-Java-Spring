@@ -117,7 +117,7 @@ public class RoomBookingService implements IRoomBookingService {
 
     private boolean isRoomAvailableForDates(Room room, LocalDate stayFrom, LocalDate stayUntil) {
 
-        if (!room.getAvalaibleRoom()) {
+        if (!room.getAvalaibleRoom() ) {
             return false;
         }
 
