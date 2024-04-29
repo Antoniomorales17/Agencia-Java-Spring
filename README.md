@@ -1,6 +1,6 @@
 # Prueba técnica4 || Agencia & Sistema de reservas de vuelo y hoteles ✈🏖🏝
 
-El propósito de este desafío consiste en poner en práctica los conocimientos adquiridos hasta ahora durante el BOOTCAMP (Git, Java, Spring Boot, Testing, JPA + Hibernate, Spring Security y JWT) para desarrollar una API REST, siguiendo un enunciado proporcionado y una especificación de requisitos técnico-funcionales, con la ayuda de documentación adjunta
+El propósito de este desafío consiste en poner en práctica los conocimientos adquiridos hasta ahora durante el BOOTCAMP (Git, Java, Spring Boot, Testing, JPA + Hibernate, Spring Security y JWT) para desarrollar una API REST.
 
 ## Características 🎯
 
@@ -35,7 +35,6 @@ El propósito de este desafío consiste en poner en práctica los conocimientos 
  ◼ Usuario Administrador:
  
           ◻ Usuario: admin
-          
           ◻ Contraseña: admin
 
 #### Documentación de la API
