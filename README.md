@@ -1,5 +1,7 @@
 # Prueba técnica4 || Agencia & Sistema de reservas de vuelo y hoteles ✈🏖🏝
 
+![landing](https://i.imgur.com/XzxWyMo.png)
+
 El propósito de este desafío consiste en poner en práctica los conocimientos adquiridos hasta ahora durante el BOOTCAMP (Git, Java, Spring Boot, Testing, JPA + Hibernate, Spring Security y JWT) para desarrollar una API REST.
 
 ## Características 🎯
