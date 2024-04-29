@@ -33,8 +33,22 @@ El propósito de este desafío consiste en poner en práctica los conocimientos 
 ⚫ Credenciales para endpoints con restricciones:
 
  ◼ Usuario Administrador:
+ 
           ◻ Usuario: admin
+          
           ◻ Contraseña: admin
+
+#### Documentación de la API
+
+La documentación de la API se ha realizado utilizando Swagger, lo que permite una fácil comprensión de los endpoints disponibles y cómo interactuar con ellos. Puedes acceder a la documentación y probar los endpoints utilizando el siguiente enlace:
+
+http://localhost:8080/doc/swagger-ui.html
+
+#### Colección de Postman
+
+Para facilitar la comprensión y prueba de los endpoints de la API, se proporciona una colección de Postman en formato JSON. Esta colección contiene ejemplos predefinidos de solicitudes para ayudarte a comenzar a trabajar con la API
+
+          
 
 ## Estructura 💾
 
@@ -76,15 +90,7 @@ La estructura de este proyecto sigue un modelo de capas:
 
 ✅ Gestión de personas: Permite la creación de usuarios para que se encarguen de realizar las reservas correspondientes tanto en vuelos como en habitaciones.
 
-#### Documentación de la API
 
-La documentación de la API se ha realizado utilizando Swagger, lo que permite una fácil comprensión de los endpoints disponibles y cómo interactuar con ellos. Puedes acceder a la documentación y probar los endpoints utilizando el siguiente enlace:
-
-http://localhost:8080/doc/swagger-ui.html
-
-#### Colección de Postman
-
-Para facilitar la comprensión y prueba de los endpoints de la API, se proporciona una colección de Postman en formato JSON. Esta colección contiene ejemplos predefinidos de solicitudes para ayudarte a comenzar a trabajar con la API
 
 
 ## Supuestos
