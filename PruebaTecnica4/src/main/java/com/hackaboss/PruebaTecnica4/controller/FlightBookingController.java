@@ -18,7 +18,7 @@ public class FlightBookingController {
     private IFlighBookingService flighBookingService;
 
     @PostMapping
-    public ResponseEntity<FlightBooking> saveFlightBooking(@RequestBody FlightBooking flightBooking){
+    public ResponseEntity<FlightBooking> saveFlightBooking(@RequestBody FlightBooking flightBooking) {
         FlightBooking savedFlightBooking = flighBookingService.saveFlightBooking(flightBooking);
 
         if (savedFlightBooking != null) {
@@ -70,7 +70,6 @@ public class FlightBookingController {
             return new ResponseEntity<>("Flight booking not found", HttpStatus.NOT_FOUND);
         }
     }
-
 
 
 }

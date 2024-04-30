@@ -11,23 +11,23 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class RoomBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long id; // Identificador único de la reserva de habitación.
     private int numPersons;
     private LocalDate stayFrom;
     private LocalDate stayUntil;
-
     private Double roomPrice;
 
     @ManyToOne
     @JsonBackReference
-    private Room room;
+    private Room room; // Habitación reservada.
 
     @ManyToMany
     @JoinTable(
@@ -36,5 +36,5 @@ public class RoomBooking {
             inverseJoinColumns = @JoinColumn(name = "room_booking_id")
     )
 
-    private List<Person> persons = new ArrayList<>();
+    private List<Person> persons = new ArrayList<>(); // Personas asociadas con la reserva de habitación.
 }

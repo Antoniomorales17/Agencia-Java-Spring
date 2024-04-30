@@ -7,10 +7,13 @@ import java.util.List;
 
 public interface IRoomService {
 
-    Room saveRoom (Room room);
+    Room saveRoom(Room room);
+
     List<Room> findAllRooms();
 
     Room findRoomById(String codRoom);
+
     Room updateRoom(String codRoom, RoomUpdateDto room);
+
     Room deleteRoom(String codRoom);
 }

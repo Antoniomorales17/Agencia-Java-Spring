@@ -13,7 +13,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -21,7 +22,7 @@ public class Flight {
 
     @Id
 
-    private String flightCode;
+    private String flightCode; // Código único del vuelo.
     private String origin;
     private String destination;
     private LocalDate flightDate;
@@ -29,5 +30,5 @@ public class Flight {
     private Double seatPrice;
 
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<FlightBooking> flightBookings = new ArrayList<>();
+    private List<FlightBooking> flightBookings = new ArrayList<>(); // Reservas asociadas con este vuelo.
 }

@@ -7,10 +7,13 @@ import java.util.List;
 
 public interface IPersonService {
 
-    Person savePerson (Person person);
+    Person savePerson(Person person);
+
     List<Person> findAllPerson();
+
     Person findPersonById(String dni);
-    Person updatePerson (String dniPerson, PersonUpdateDto personUpdateDto);
+
+    Person updatePerson(String dniPerson, PersonUpdateDto personUpdateDto);
 
     Person deletePerson(String dni);
 }

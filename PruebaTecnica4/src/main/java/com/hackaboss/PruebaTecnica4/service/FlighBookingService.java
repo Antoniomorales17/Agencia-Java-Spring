@@ -33,7 +33,7 @@ public class FlighBookingService implements IFlighBookingService {
 
                 if (existingPerson != null) {
                     validPersons.add(existingPerson);
-                }else{
+                } else {
                     return null;
                 }
             }
@@ -53,7 +53,6 @@ public class FlighBookingService implements IFlighBookingService {
             return null;
         }
     }
-
 
 
     @Override
@@ -92,12 +91,28 @@ public class FlighBookingService implements IFlighBookingService {
         return null;
     }
 
-    private boolean existingFlightBooking (Long codFlightBooking){
+
+    /**
+     * Verifica si existe una reserva de vuelo con el ID especificado.
+     *
+     * @param codFlightBooking El ID de la reserva de vuelo a verificar.
+     * @return true si existe una reserva de vuelo con el ID especificado, de lo contrario false.
+     */
+
+    private boolean existingFlightBooking(Long codFlightBooking) {
         return flightBookingRepository.existsById(codFlightBooking);
     }
 
-    private boolean isFlightAvalaible(FlightBooking flightBooking){
-        String flightCode =flightBooking.getFlight().getFlightCode();
+
+    /**
+     * Verifica si el vuelo está disponible para la reserva, considerando la fecha del vuelo y el número de pasajeros.
+     *
+     * @param flightBooking La reserva de vuelo que se está verificando.
+     * @return true si el vuelo está disponible para la reserva, de lo contrario false.
+     */
+
+    private boolean isFlightAvalaible(FlightBooking flightBooking) {
+        String flightCode = flightBooking.getFlight().getFlightCode();
         Flight flight = flightService.findFlightById(flightCode);
 
         flightBooking.setFlight(flight);
@@ -115,6 +130,15 @@ public class FlighBookingService implements IFlighBookingService {
         }
         return false;
     }
+
+
+    /**
+     * Verifica si el vuelo está disponible para la fecha especificada.
+     *
+     * @param flight     El vuelo que se está verificando.
+     * @param flightDate La fecha para la cual se está realizando la verificación de disponibilidad.
+     * @return true si el vuelo está disponible para la fecha especificada, de lo contrario false.
+     */
 
     private boolean isFlightAvailableForDate(Flight flight, LocalDate flightDate) {
         if (flight != null && flight.getFlightCode() != null) {

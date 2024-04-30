@@ -11,14 +11,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Room {
 
     @Id
-    private String roomCode;
+    private String roomCode; // Código único de la habitación.
     private LocalDate availableFrom;
     private LocalDate availableUntil;
     private int numBed;
@@ -29,9 +30,9 @@ public class Room {
     @ManyToOne
     @JoinColumn(name = "hotel_id")
     @JsonBackReference
-    private Hotel hotel;
+    private Hotel hotel; // Hotel al que pertenece la habitación.
 
-    @OneToMany(mappedBy = "room",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<RoomBooking> roomBookings = new ArrayList<>();
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<RoomBooking> roomBookings = new ArrayList<>(); // Reservas asociadas con esta habitación.
 
 }

@@ -18,10 +18,10 @@ public class RoomBookingController {
     private IRoomBookingService roomBookingService;
 
     @PostMapping
-    public ResponseEntity<RoomBooking> saveRoomBooking(@RequestBody RoomBooking roomBooking){
+    public ResponseEntity<RoomBooking> saveRoomBooking(@RequestBody RoomBooking roomBooking) {
         RoomBooking savedRoomBooking = roomBookingService.saveRoomBooking(roomBooking);
 
-        if (savedRoomBooking != null){
+        if (savedRoomBooking != null) {
             return new ResponseEntity<>(savedRoomBooking, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
@@ -58,6 +58,7 @@ public class RoomBookingController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
+
     @PutMapping("/{roomBookingId}")
     public ResponseEntity<RoomBooking> updateRoomBooking(@PathVariable long roomBookingId, @RequestBody RoomBookingUpdateDto roomBookingUpdateDTO) {
         RoomBooking updatedRoomBooking = roomBookingService.updateRoomBooking(roomBookingId, roomBookingUpdateDTO);
@@ -68,6 +69,7 @@ public class RoomBookingController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
     @DeleteMapping("/{roomBookingId}")
     public ResponseEntity<String> deleteRoomBooking(@PathVariable long roomBookingId) {
         RoomBooking roomBooking = roomBookingService.deleteRoomBooking(roomBookingId);

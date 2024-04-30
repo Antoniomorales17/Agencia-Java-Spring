@@ -18,9 +18,9 @@ public class PersonController {
     private IPersonService personService;
 
     @PostMapping
-    public ResponseEntity<Person> savePerson(@RequestBody Person person){
+    public ResponseEntity<Person> savePerson(@RequestBody Person person) {
         Person savePerson = personService.savePerson(person);
-        if (savePerson != null){
+        if (savePerson != null) {
             return new ResponseEntity<>(savePerson, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
@@ -28,9 +28,9 @@ public class PersonController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Person>> getAllPerson(){
+    public ResponseEntity<List<Person>> getAllPerson() {
         List<Person> persons = personService.findAllPerson();
-        if (!persons.isEmpty()){
+        if (!persons.isEmpty()) {
             return new ResponseEntity<>(persons, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
@@ -38,7 +38,7 @@ public class PersonController {
     }
 
     @GetMapping("/{dni}")
-    public ResponseEntity<Person> getPersonById (@PathVariable String dni){
+    public ResponseEntity<Person> getPersonById(@PathVariable String dni) {
         Person person = personService.findPersonById(dni);
         if (person != null) {
             return new ResponseEntity<>(person, HttpStatus.OK);
@@ -60,12 +60,12 @@ public class PersonController {
     }
 
     @DeleteMapping("/{dni}")
-    public ResponseEntity<String> deletePerson ( @PathVariable String dni){
+    public ResponseEntity<String> deletePerson(@PathVariable String dni) {
         Person person = personService.deletePerson(dni);
         if (person != null) {
             return new ResponseEntity<>("Person deleted successfully", HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("Person not found",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Person not found", HttpStatus.NOT_FOUND);
         }
     }
 

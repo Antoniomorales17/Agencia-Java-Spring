@@ -12,11 +12,11 @@ public interface IHotelService {
 
     List<Hotel> findAllHotel();
 
-    Hotel findHotelById(String codHotel );
+    Hotel findHotelById(String codHotel);
 
     Hotel updateHotel(String codHotel, HotelUpdateDto hotelUpdateDto);
 
     Hotel deleteHotel(String codHotel);
 
-    List<Hotel> findAvalaibleHotelsInCityForDates(String city, LocalDate parsedDateFrom,LocalDate parsedDateTo);
+    List<Hotel> findAvalaibleHotelsInCityForDates(String city, LocalDate parsedDateFrom, LocalDate parsedDateTo);
 }

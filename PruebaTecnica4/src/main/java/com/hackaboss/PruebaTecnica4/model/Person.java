@@ -12,7 +12,8 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -25,10 +26,10 @@ public class Person {
     private String email;
 
     @JsonIgnore
-    @ManyToMany (mappedBy = "persons")
-    private List<RoomBooking> roomBookings = new ArrayList<>();
+    @ManyToMany(mappedBy = "persons")
+    private List<RoomBooking> roomBookings = new ArrayList<>(); // Reservas de habitación asociadas con esta persona
 
     @JsonIgnore
-    @ManyToMany (mappedBy = "persons")
-    private List<FlightBooking> flightBookings = new ArrayList<>();
+    @ManyToMany(mappedBy = "persons")
+    private List<FlightBooking> flightBookings = new ArrayList<>(); // Reservas de vuelo asociadas con esta persona.
 }

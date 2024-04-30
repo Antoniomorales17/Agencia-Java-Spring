@@ -18,10 +18,10 @@ public class HotelController {
     private IHotelService hotelService;
 
     @PostMapping("/new")
-    public ResponseEntity<Hotel> saveHotel (@RequestBody Hotel hotel){
+    public ResponseEntity<Hotel> saveHotel(@RequestBody Hotel hotel) {
         Hotel savedHotel = hotelService.saveHotel(hotel);
 
-        if (savedHotel != null){
+        if (savedHotel != null) {
             return new ResponseEntity<>(savedHotel, HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
@@ -52,7 +52,7 @@ public class HotelController {
     }
 
     @GetMapping("/{hotelId}")
-    public ResponseEntity<Hotel> getHotelById(@PathVariable String hotelId){
+    public ResponseEntity<Hotel> getHotelById(@PathVariable String hotelId) {
         Hotel hotel = hotelService.findHotelById(hotelId);
 
         if (hotel != null) {
@@ -63,7 +63,7 @@ public class HotelController {
     }
 
     @PutMapping("/edit/{hotelId}")
-    public ResponseEntity<Hotel> updateHotel(@PathVariable String hotelId, @RequestBody HotelUpdateDto updatedHotel){
+    public ResponseEntity<Hotel> updateHotel(@PathVariable String hotelId, @RequestBody HotelUpdateDto updatedHotel) {
         Hotel savedHotel = hotelService.updateHotel(hotelId, updatedHotel);
 
         if (savedHotel != null) {
@@ -83,8 +83,6 @@ public class HotelController {
             return new ResponseEntity<>("Unable to delete hotel. Either hotel not found or there are reservations in its rooms.", HttpStatus.CONFLICT);
         }
     }
-
-
 
 
 }

@@ -33,6 +33,8 @@ public class FlightTest {
         mockList = new ArrayList<>();
     }
 
+
+    // Prueba para verificar si se pueden obtener vuelos correctamente.
     @Test
     public void getFlights() {
         mockList.add(new Flight("AA1", "Estocolmo", "Austria", LocalDate.parse("2024-02-15"), 200, 100.00, null));
@@ -42,6 +44,8 @@ public class FlightTest {
         assertTrue(flightList != null && !flightList.isEmpty());
     }
 
+
+    // Prueba para verificar si la lista de vuelos está vacía.
     @Test
     public void getFlightsEmpty() {
         when(flightRepository.findAll()).thenReturn(mockList);
@@ -51,20 +55,21 @@ public class FlightTest {
 
     }
 
+
+    // Prueba para verificar si se pueden obtener vuelos entre ciertas fechas y en una ciudad específica.
     @Test
-    public void getFlightsBetweenDatesAndCity(){
+    public void getFlightsBetweenDatesAndCity() {
         Flight flight = new Flight("AA1", "Estocolmo", "Austria", LocalDate.parse("2024-02-15"), 200, 100.00, null);
 
         mockList.add(flight);
 
-        when(flightRepository.findByOriginAndDestination("Estocolmo","Austria")).thenReturn(mockList);
+        when(flightRepository.findByOriginAndDestination("Estocolmo", "Austria")).thenReturn(mockList);
 
-        List<Flight> flightList = flightService.findAvailableFlightWithOriginAndDestinationForDates("Estocolmo","Austria", LocalDate.parse("2024-02-15"), LocalDate.parse("2025-02-15"));
+        List<Flight> flightList = flightService.findAvailableFlightWithOriginAndDestinationForDates("Estocolmo", "Austria", LocalDate.parse("2024-02-15"), LocalDate.parse("2025-02-15"));
 
         assertTrue(flightList != null && !flightList.isEmpty());
 
     }
-
 
 
 }

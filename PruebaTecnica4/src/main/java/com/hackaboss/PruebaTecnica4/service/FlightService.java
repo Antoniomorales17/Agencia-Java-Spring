@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class FlightService implements  IFlightService {
+public class FlightService implements IFlightService {
     @Autowired
     private FlightRepository flightRepository;
 
     @Override
     public Flight saveFlight(Flight flight) {
-        if (existingFlight(flight.getFlightCode())){
+        if (existingFlight(flight.getFlightCode())) {
             return null;
         }
         return flightRepository.save(flight);
@@ -35,7 +35,7 @@ public class FlightService implements  IFlightService {
 
     @Override
     public Flight updateFlight(String codFlight, Flight updatedFlight) {
-        if (existingFlight(codFlight)){
+        if (existingFlight(codFlight)) {
             Flight existingFlight = flightRepository.findById(codFlight).orElse(null);
 
             if (existingFlight != null) {
@@ -53,10 +53,10 @@ public class FlightService implements  IFlightService {
 
     @Override
     public Flight deleteFlight(String codFlight) {
-        if (existingFlight(codFlight)){
+        if (existingFlight(codFlight)) {
             Flight flight = flightRepository.findById(codFlight).orElse(null);
 
-            if (flight != null && existingFlightBookings(flight)){
+            if (flight != null && existingFlightBookings(flight)) {
                 flightRepository.delete(flight);
                 return flight;
             }
@@ -72,6 +72,17 @@ public class FlightService implements  IFlightService {
                 .collect(Collectors.toList());
     }
 
+
+    /**
+     * Verifica si una reserva de vuelo es válida para un vuelo específico.
+     * Una reserva es válida si el número total de pasajeros que incluiría la nueva reserva no excede
+     * el número máximo de pasajeros permitidos para el vuelo.
+     *
+     * @param codFlight        El código del vuelo para el cual se está realizando la verificación.
+     * @param newFlightBooking La nueva reserva de vuelo que se está verificando.
+     * @return true si la reserva es válida, de lo contrario false.
+     */
+
     private boolean isBookingValid(String codFlight, FlightBooking newFlightBooking) {
         Flight flight = flightRepository.findById(codFlight).get();
         if (flight == null) {
@@ -82,11 +93,27 @@ public class FlightService implements  IFlightService {
         }
     }
 
-    private boolean existingFlight(String codFlight){
+
+    /**
+     * Verifica si existe un vuelo con el código especificado.
+     *
+     * @param codFlight El código del vuelo a verificar.
+     * @return true si existe un vuelo con el código especificado, de lo contrario false.
+     */
+
+    private boolean existingFlight(String codFlight) {
         return flightRepository.existsById(codFlight);
     }
 
-    private boolean existingFlightBookings(Flight flight){
+
+    /**
+     * Verifica si existen reservas asociadas con un vuelo.
+     *
+     * @param flight El vuelo para el cual se está realizando la verificación.
+     * @return true si no existen reservas asociadas con el vuelo, de lo contrario false.
+     */
+
+    private boolean existingFlightBookings(Flight flight) {
         return
                 flight.getFlightBookings().isEmpty();
     }

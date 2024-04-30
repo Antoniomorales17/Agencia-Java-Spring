@@ -9,10 +9,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PersonService implements  IPersonService {
+public class PersonService implements IPersonService {
 
     @Autowired
     private PersonRepository personRepository;
+
+
+    /**
+     * Guarda una persona en el repositorio.
+     * Además de guardar la persona, este método también actualiza las asociaciones con las reservas de habitaciones y vuelos.
+     *
+     * @param person La persona que se va a guardar.
+     * @return La persona guardada si se realiza con éxito, de lo contrario null.
+     */
     @Override
     public Person savePerson(Person person) {
         if (existingPerson(person.getDni())) {
@@ -36,11 +45,20 @@ public class PersonService implements  IPersonService {
         return personRepository.findById(dni).orElse(null);
     }
 
+
+    /**
+     * Actualiza los datos de una persona en el repositorio.
+     *
+     * @param dniPerson El DNI de la persona que se va a actualizar.
+     * @param personDto El DTO que contiene los nuevos datos de la persona.
+     * @return La persona actualizada si se realiza con éxito, de lo contrario null.
+     */
+
     @Override
     public Person updatePerson(String dniPerson, PersonUpdateDto personDto) {
         Person existingPerson = personRepository.findById(dniPerson).orElse(null);
 
-        if (existingPerson != null){
+        if (existingPerson != null) {
             existingPerson.setName(personDto.getName());
             existingPerson.setLastName(personDto.getLastName());
             existingPerson.setEmail(personDto.getEmail());
@@ -51,9 +69,9 @@ public class PersonService implements  IPersonService {
 
     @Override
     public Person deletePerson(String dni) {
-        if (existingPerson(dni)){
+        if (existingPerson(dni)) {
             Person person = personRepository.findById(dni).orElse(null);
-            if (person != null){
+            if (person != null) {
                 personRepository.delete(person);
                 return person;
             }
@@ -61,7 +79,15 @@ public class PersonService implements  IPersonService {
         return null;
     }
 
-    private boolean existingPerson(String dni){
+
+    /**
+     * Verifica si existe una persona con el DNI especificado.
+     *
+     * @param dni El DNI de la persona a verificar.
+     * @return true si existe una persona con el DNI especificado, de lo contrario false.
+     */
+
+    private boolean existingPerson(String dni) {
         return personRepository.existsById(dni);
     }
 }

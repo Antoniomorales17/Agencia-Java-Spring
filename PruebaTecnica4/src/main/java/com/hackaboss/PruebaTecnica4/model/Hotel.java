@@ -13,17 +13,18 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter  @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Hotel {
     @Id
-    private String hotelCode;
+    private String hotelCode; // Código único del hotel.
     private String hotelName;
     private String city;
 
-    @OneToMany(mappedBy = "hotel",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<Room> rooms = new ArrayList<>();
+    private List<Room> rooms = new ArrayList<>(); // Habitaciones disponibles en el hotel
 }

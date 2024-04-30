@@ -11,7 +11,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -29,7 +30,7 @@ public class FlightBooking {
 
     @ManyToOne
     @JsonBackReference
-    private Flight flight;
+    private Flight flight; // Vuelo asociado a la reserva.
 
     @ManyToMany
     @JoinTable(
@@ -37,6 +38,6 @@ public class FlightBooking {
             joinColumns = @JoinColumn(name = "flight_booking_id"),
             inverseJoinColumns = @JoinColumn(name = "person_id")
     )
-    private List<Person> persons = new ArrayList<>();
+    private List<Person> persons = new ArrayList<>(); // Personas asociadas a la reserva.
 
 }

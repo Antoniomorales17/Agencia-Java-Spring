@@ -30,9 +30,9 @@ public class RoomController {
     @GetMapping
     public ResponseEntity<List<Room>> getAllRooms() {
         List<Room> rooms = roomService.findAllRooms();
-        if(!rooms.isEmpty()){
+        if (!rooms.isEmpty()) {
             return new ResponseEntity<>(rooms, HttpStatus.OK);
-        }else{
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 

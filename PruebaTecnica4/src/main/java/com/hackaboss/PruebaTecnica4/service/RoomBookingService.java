@@ -35,7 +35,7 @@ public class RoomBookingService implements IRoomBookingService {
 
                 if (existingPerson != null) {
                     validPersons.add(existingPerson);
-                }else{
+                } else {
                     return null;
                 }
             }
@@ -87,9 +87,25 @@ public class RoomBookingService implements IRoomBookingService {
         return null;
     }
 
+
+    /**
+     * Verifica si existe una reserva de habitación con el código especificado.
+     *
+     * @param codRoomBooking El código de la reserva de habitación a verificar.
+     * @return true si existe una reserva de habitación con el código especificado, de lo contrario false.
+     */
+
     private boolean existingRoomBooking(Long codRoomBooking) {
         return roomBookingRepository.existsById(codRoomBooking);
     }
+
+
+    /**
+     * Verifica si una habitación está disponible para una reserva específica.
+     *
+     * @param roomBooking La reserva de habitación que se está verificando.
+     * @return true si la habitación está disponible para la reserva especificada, de lo contrario false.
+     */
 
     private boolean isRoomAvailable(RoomBooking roomBooking) {
         String roomCode = roomBooking.getRoom().getRoomCode();
@@ -115,9 +131,19 @@ public class RoomBookingService implements IRoomBookingService {
         return false;
     }
 
+
+    /**
+     * Verifica si una habitación está disponible para un rango de fechas específico.
+     *
+     * @param room      La habitación que se está verificando.
+     * @param stayFrom  La fecha de inicio del rango de fechas.
+     * @param stayUntil La fecha de fin del rango de fechas.
+     * @return true si la habitación está disponible para el rango de fechas especificado, de lo contrario false.
+     */
+
     private boolean isRoomAvailableForDates(Room room, LocalDate stayFrom, LocalDate stayUntil) {
 
-        if (!room.getAvalaibleRoom() ) {
+        if (!room.getAvalaibleRoom()) {
             return false;
         }
 

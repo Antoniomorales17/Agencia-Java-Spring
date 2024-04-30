@@ -8,9 +8,11 @@ import java.util.List;
 public interface IFlighBookingService {
 
     FlightBooking saveFlightBooking(FlightBooking flightBooking);
+
     List<FlightBooking> findAllFlightBooking();
 
     FlightBooking findFlightBookingById(Long codFlightBooking);
+
     FlightBooking updateFlightBooking(Long codFlightBooking, FlightBookingUpdateDto flightBookingDto);
 
     FlightBooking deleteFlightBooking(Long codFlightBooking);

@@ -17,6 +17,15 @@ public class RoomService implements IRoomService {
     @Autowired
     private HotelRepository hotelRepository;
 
+
+    /**
+     * Guarda una habitación en el repositorio.
+     * Antes de guardar la habitación, se verifica si el hotel asociado existe.
+     *
+     * @param room La habitación que se va a guardar.
+     * @return La habitación guardada si se realiza con éxito, de lo contrario null.
+     */
+
     @Override
     public Room saveRoom(Room room) {
         String codHotel = room.getHotel().getHotelCode();
@@ -42,6 +51,15 @@ public class RoomService implements IRoomService {
     public Room findRoomById(String codRoom) {
         return roomRepository.findById(codRoom).orElse(null);
     }
+
+
+    /**
+     * Actualiza los datos de una habitación en el repositorio.
+     *
+     * @param codRoom       El código de la habitación que se va a actualizar.
+     * @param roomUpdateDto El DTO que contiene los nuevos datos de la habitación.
+     * @return La habitación actualizada si se realiza con éxito, de lo contrario null.
+     */
 
     @Override
     public Room updateRoom(String codRoom, RoomUpdateDto roomUpdateDto) {
@@ -70,6 +88,14 @@ public class RoomService implements IRoomService {
         }
         return null;
     }
+
+
+    /**
+     * Verifica si existe una habitación con el código especificado.
+     *
+     * @param codRoom El código de la habitación a verificar.
+     * @return true si existe una habitación con el código especificado, de lo contrario false.
+     */
 
     private boolean existingRoom(String codRoom) {
         return roomRepository.existsById(codRoom);

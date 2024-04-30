@@ -18,7 +18,7 @@ public class FlightController {
     private IFlightService flightService;
 
     @PostMapping("/new")
-    public ResponseEntity<Flight> saveFlight (@RequestBody Flight flight){
+    public ResponseEntity<Flight> saveFlight(@RequestBody Flight flight) {
         Flight savedFlight = flightService.saveFlight(flight);
 
         if (savedFlight != null) {
@@ -31,7 +31,7 @@ public class FlightController {
 
     @GetMapping
     public ResponseEntity<?> getAllFlights(@RequestParam(required = false) String origin, @RequestParam(required = false) String destination,
-                                           @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo){
+                                           @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo) {
 
         List<Flight> flights;
 
@@ -51,10 +51,10 @@ public class FlightController {
     }
 
     @GetMapping("/{codFlight}")
-    public ResponseEntity<Flight> getFlightById(@PathVariable String codFlight){
+    public ResponseEntity<Flight> getFlightById(@PathVariable String codFlight) {
         Flight flight = flightService.findFlightById(codFlight);
 
-        if (flight !=null){
+        if (flight != null) {
             return new ResponseEntity<>(flight, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
