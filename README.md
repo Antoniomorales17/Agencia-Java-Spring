@@ -45,8 +45,8 @@ La documentación de la API se ha realizado utilizando Swagger, lo que permite u
 
 http://localhost:8080/doc/swagger-ui.html
 
-          ◻ Usuario: admin
-          ◻ Contraseña: admin
+- Usuario: admin
+- Contraseña: admin
 
 #### Colección de Postman
 
