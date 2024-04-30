@@ -36,8 +36,8 @@ El propósito de este desafío consiste en poner en práctica los conocimientos 
 
  ◼ Usuario Administrador:
  
-          ◻ Usuario: admin
-          ◻ Contraseña: admin
+ - Usuario: admin
+ - Contraseña: admin
 
 #### Documentación de la API
 
