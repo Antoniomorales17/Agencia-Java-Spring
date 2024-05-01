@@ -26,7 +26,7 @@ El propósito de este desafío consiste en poner en práctica los conocimientos 
 
 🔴 Un contenedor de servlet como Apache Tomcat para desplegar el proyecto web
 
-⚠ La base de datos se encuentras en sources con el nombre : agencia
+⚠ La base de datos y la colección de Postman se encuentran en la carpeta sources.
 
 #### Seguridad 🔒
 
