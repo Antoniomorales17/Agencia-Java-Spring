@@ -1,0 +1,723 @@
+{
+	"info": {
+		"_postman_id": "fd1ae6c1-708f-4237-a651-a44414ed321c",
+		"name": "agencia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27874353"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/agency/flights/new",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"flightCode\": \"WD005\",\r\n  \"origin\": \"Almeria\",\r\n  \"destination\": \"Paris\",\r\n  \"flightDate\": \"2024-06-25\",\r\n  \"maxPassengers\": 200,\r\n  \"seatPrice\": 200,\r\n  \"flightBookings\": []\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/agency/flights/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/flights",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/agency/flights",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/flights/ABC123",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/agency/flights/ABC123",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights",
+						"ABC123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/flights/ABC123",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"flightCode\": \"ABC123\",\r\n  \"origin\": \"Barcelona\",\r\n  \"destination\": \"Madrid\",\r\n  \"flightDate\": \"2024-05-01\",\r\n  \"maxPassengers\": 150,\r\n  \"seatPrice\": 250.00\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/agency/flights/ABC123",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights",
+						"ABC123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/persons",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\": \"A1234\",\r\n    \"name\": \"Arya\",\r\n    \"lastName\": \"Stark\",\r\n    \"email\": \"aria.stark@nightswatch.com\",\r\n    \"roomBookings\": [],\r\n    \"flightBookings\": []\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/agency/persons",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/persons",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/agency/persons",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/persons/123456789",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jane\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"jane.doe@example.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/agency/persons/123456789",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"persons",
+						"123456789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/flight-booking",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n  \"numPersons\": 1,\r\n  \"flightDate\": \"2025-04-25\",\r\n  \"seatType\": \"Economy\",\r\n  \"totalPrice\": 300,\r\n \"flight\": {\r\n   \"flightCode\": \"WD005\",\r\n        \"origin\": \"Almeria\",\r\n        \"destination\": \"Paris\",\r\n        \"flightDate\": \"2024-06-25\",\r\n        \"maxPassengers\": 200,\r\n        \"seatPrice\": 200.0\r\n  },\r\n  \"persons\": [\r\n   {\r\n      \"dni\": \"A1234\",\r\n        \"name\": \"Arya\",\r\n        \"lastName\": \"Stark\",\r\n        \"email\": \"aria.stark@nightswatch.com\"\r\n    }\r\n    \r\n  ]\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/agency/flight-booking",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flight-booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/flight-booking",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/agency/flight-booking",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flight-booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/flight-booking/new",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"numPersons\": 2,\r\n  \"flightDate\": \"2024-04-22\",\r\n  \"seatType\": \"Economy\",\r\n  \"totalPrice\": 300.0,\r\n  \"flight\": {\r\n    \"flightCode\": \"AA123\",\r\n    \"origin\": \"New York\",\r\n    \"destination\": \"Los Angeles\",\r\n    \"flightDate\": \"2024-04-22\",\r\n    \"maxPassengers\": 200,\r\n    \"seatPrice\": 150\r\n  },\r\n  \"persons\": [\r\n    {\r\n      \"name\": \"John Doe\",\r\n      \"age\": 30,\r\n      \"passportNumber\": \"AB123456\"\r\n    },\r\n    {\r\n      \"name\": \"Jane Smith\",\r\n      \"age\": 25,\r\n      \"passportNumber\": \"CD987654\"\r\n    }\r\n  ]\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/agency/flight-booking/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flight-booking",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/hotels/new",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hotelCode\": \"CASTERLY001\",\r\n    \"hotelName\": \"Casterly Rock Resort\",\r\n    \"city\": \"Rocadragón\",\r\n    \"availableRooms\": [\r\n        {\r\n            \"roomNumber\": \"201\",\r\n            \"roomType\": \"Suite\",\r\n            \"pricePerNight\": 300\r\n        },\r\n        {\r\n            \"roomNumber\": \"202\",\r\n            \"roomType\": \"Standard\",\r\n            \"pricePerNight\": 150\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/agency/hotels/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/agency/hotels",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/agency/hotels/ABC123",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/hotels/ABC123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels",
+						"ABC123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/agency/hotel/rooms/new",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"roomCode\": \"005\",\r\n  \"availableFrom\": \"2025-05-01\",\r\n  \"availableUntil\": \"2025-05-15\",\r\n  \"numBed\": 2,\r\n  \"avalaibleRoom\": true,\r\n  \"pricePerNight\": 100.00,\r\n  \"hotel\": {\r\n    \"hotelCode\": \"CASTERLY001\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/agency/hotel/rooms/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotel",
+						"rooms",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/agency/hotel/rooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/hotel/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotel",
+						"rooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/agency/hotel-booking",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numPersons\": 1,\r\n    \"stayFrom\": \"2025-05-01\",\r\n    \"stayUntil\": \"2025-05-05\",\r\n    \"roomPrice\": 800.00,\r\n    \"room\": {\r\n        \"roomCode\": \"005\"\r\n    },\r\n    \"persons\": [\r\n        {\r\n        \"dni\": \"A1234\",\r\n        \"name\": \"Arya\",\r\n        \"lastName\": \"Stark\",\r\n        \"email\": \"aria.stark@nightswatch.com\"\r\n        }\r\n        \r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/agency/hotel-booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotel-booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/agency/hotel-booking",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/hotel-booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotel-booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/agency/persons/",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/persons/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"persons",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/persons/123456789",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/agency/persons/123456789",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"persons",
+						"123456789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/hotels/PULGAS1",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hotelCode\": \"PULGAS1\",\r\n    \"hotelName\": \"Lecho de pulgas\",\r\n    \"city\": \"Desembarco del rey\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/agency/hotels/PULGAS1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels",
+						"PULGAS1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/persons/D1213",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/agency/persons/D1213",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"persons",
+						"D1213"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/agency/flights/GOT001",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/agency/flights/GOT001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights",
+						"GOT001"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

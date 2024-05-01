@@ -40,6 +40,7 @@ public class FlighBookingService implements IFlighBookingService {
 
             double seatPrice = flightBooking.getFlight().getSeatPrice();
             String seatType = flightBooking.getSeatType();
+            // Si es un asiento premium, el precio se duplica.
             if ("business".equalsIgnoreCase(seatType)) {
                 seatPrice *= 2;
             }
