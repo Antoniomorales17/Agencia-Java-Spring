@@ -62,7 +62,12 @@ El proyecto está organizado de la siguiente manera:
 
 ✅ src/test/java: Contiene las pruebas unitarias. 
 
-✅ src/main/resources: Contiene archivos de configuración y recursos entre los cuales se incluyen la base de datos en formato .sql y la Postman Collection.
+✅ src/main/resources: Contiene archivos de configuración y recursos entre los cuales se incluyen la base de datos en formato .sql , la Postman Collection y el diagrama UML.
+
+#### Diagrama UML 🎨
+
+![uml](https://i.imgur.com/dL1Re7a.png)
+
 
 #### Organización de carpetas
 
