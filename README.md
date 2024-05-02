@@ -108,4 +108,4 @@ La estructura de este proyecto sigue un modelo de capas:
 
 🔵 Dependencias para las reservas: Para realizar una reserva, es necesario que tanto los vuelos como los hoteles estén creados previamente en el sistema. La reserva se vincula con estos elementos existentes.
 
-🔵 No se permite eliminar usuarios que tienen una reserva ya realizada.Es necesario cancelar/borrar la reserva y posteriormente realizar las operaciones sobre la persona. Del mismo modo ocurre con editar, no esta permitido modidicar un vuelo o hotel que ya contiene reservas.
+🔵 No se permite eliminar usuarios que tienen una reserva ya realizada.Es necesario cancelar/borrar la reserva y posteriormente realizar las operaciones sobre la persona. Del mismo modo ocurre con editar, no esta permitido modificar un vuelo o hotel que ya contiene reservas.
